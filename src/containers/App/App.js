@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import logo from '../../assets/logo.svg';
+import React from 'react';
+import logo from '../../assets/marvel-logo-cropped.png';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+const App = (props) => {
+  return (
+    <div className="app-container">
+      <header>
+        <div className="container-fluid">
+          <div className="row center-sm">
+            <div className="col-xs-12">
+              <div className="App__header">
+                <img src={logo} className="header__logo" alt="logo" />
+                <h2>Character Viewer</h2>
+              </div>
+            </div>
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      </header>
+      <div className="view-container">
+        <div className="container-fluid">
+          {props.children}
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+App.propTypes = {
+  children: React.PropTypes.node.isRequired,
+};
 
 export default App;

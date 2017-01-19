@@ -13,8 +13,11 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "flexboxgrid": "^6.3.1",
+    "font-awesome": "^4.7.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
