@@ -1,14 +1,18 @@
 import React from 'react';
-import Link from 'react-router/lib/Link';
+import Card from '../../components/Card';
 import './Characters.css';
 
 const Characters = (props) => {
   return (
     <div className="row center-sm">
-      <div className="col-xs-12 col-sm-12 col-md-6">
-        I am characters route
-        <br/>
-        <Link to="/characters/1">Character 1</Link>
+      <div className="col-xs-12 col-sm-6 col-md-3">
+        <Card title="Deadpool" />
+      </div>
+      <div className="col-xs-12 col-sm-6 col-md-3">
+        <Card title="Punisher" />
+      </div>
+      <div className="col-xs-12 col-sm-6 col-md-3">
+        <Card title="Wolverine" />
       </div>
     </div>
   );

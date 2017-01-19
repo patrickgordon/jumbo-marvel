@@ -11,7 +11,7 @@ const App = (props) => {
             <div className="col-xs-12">
               <div className="App__header">
                 <img src={logo} className="header__logo" alt="logo" />
-                <h2>Character Viewer</h2>
+                <h1>Character Viewer</h1>
               </div>
             </div>
           </div>
