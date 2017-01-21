@@ -1,0 +1,14 @@
+.Header__logo {
+  width: 350px;
+}
+
+@media screen and (max-width: 480px ) {
+  .Header__logo {
+    width: 175px;
+  }
+}
+
+.Header {
+  margin: 20px 0;
+  color: white;
+}

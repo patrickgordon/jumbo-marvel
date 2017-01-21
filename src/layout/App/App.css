@@ -1,23 +1,23 @@
-.header__logo {
-  width: 400px;
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-@media screen and (max-width: 480px ) {
-  .header__logo {
-    width: 200px;
-  }
-}
-
-.App__header {
-  margin-top: 20px;
-  color: white;
-}
-
-header {
+.header-container {
+  flex-grow: 0;
+  flex-shrink: 0;
   background-color: #212121;
 }
 
 .view-container {
+  flex-grow: 1;
+  flex-shrink: 0;
   margin-top: 20px;
-  /*padding-bottom: 20px;*/
+}
+
+.footer-container {
+  flex-grow: 0;
+  flex-shrink: 0;
 }

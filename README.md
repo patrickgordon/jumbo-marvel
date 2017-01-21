@@ -15,10 +15,14 @@ When creating the app consider the following areas :
 * Testability
 
 # Implementation comments
-* Decided to roll my own CSS to keep things lightweight*
+* Decided to roll my own CSS to keep things lightweight
+* Redux added to ensure that the route structure can be upheld and when opening that route there is 
+already hydrated data
 
 # Comments on directory structure
-For those under `src`
+The way I have set up the directory structure draws some inspiration from [this post](https://github.com/davezuko/react-redux-starter-kit/wiki/Fractal-Project-Structure)  
+
+Below paths are relative to `src`
 
 |Directory                    |Purpose                                            |
 |-----------------------------|---------------------------------------------------|
