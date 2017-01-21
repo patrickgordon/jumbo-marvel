@@ -32,7 +32,11 @@
 .Card__image {
   width: 100%;
   height: 100%;
-  filter: grayscale(20%) brightness(50%);
+  filter: grayscale(20%) brightness(30%);
+}
+
+.Card__image:hover {
+  filter: grayscale(20%) brightness(80%);
 }
 
 .Card__actions-container {

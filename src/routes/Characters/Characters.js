@@ -3,6 +3,7 @@ import CharactersList from '../../components/CharactersList';
 
 const mapStateToProps = state => ({
   isFetching: state.characters.isFetching,
+  items: state.characters.items,
 });
 // const mapDispatchToProps = () => {
 // };

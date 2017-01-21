@@ -18,7 +18,7 @@ export function getCharacters() {
       type: FETCH_ALL_REQUEST,
     });
 
-    axios.get('https://gateway.marvel.com:443/v1/public/characters?apikey=37c21e2f4f5552df9929fbac286b8a39')
+    axios.get('https://gateway.marvel.com:443/v1/public/characters?limit=50&apikey=37c21e2f4f5552df9929fbac286b8a39')
       .then((response) => {
         dispatch({
           type: FETCH_ALL_SUCCESS,
@@ -44,7 +44,7 @@ const initialState = {
     totalRecords: 0,
     offset: 0,
   },
-  items: {},
+  items: [],
 };
 
 export default function charactersReducer(state = initialState, action) {

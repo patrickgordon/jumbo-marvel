@@ -4,7 +4,7 @@ import Spinner from '../Spinner';
 import './CharactersList.css';
 
 const CharactersList = (props) => {
-  const { isFetching } = props;
+  const { isFetching, items } = props;
 
   const spinner = (
     <div className="row center-xs">
@@ -22,15 +22,18 @@ const CharactersList = (props) => {
         </div>
       </div>
       <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-4">
-          <Card title="Deadpool" />
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
-          <Card title="Punisher" />
-        </div>
-        <div className="col-xs-12 col-sm-6 col-md-4">
-          <Card title="Wolverine" />
-        </div>
+        {
+          items.map((item) => {
+            return (
+              <div key={item.id} className="col-xs-12 col-sm-6 col-md-2">
+                <Card
+                  title={item.name} linkTo={`/characters/${item.id}`}
+                  image={`${item.thumbnail.path}/standard_fantastic.${item.thumbnail.extension}`}
+                />
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   );
@@ -44,12 +47,15 @@ const CharactersList = (props) => {
   );
 };
 
+
 CharactersList.propTypes = {
   isFetching: React.PropTypes.bool,
+  items: React.PropTypes.arrayOf(React.PropTypes.object),
 };
 
 CharactersList.defaultProps = {
   isFetching: false,
+  items: [],
 };
 
 export default CharactersList;
