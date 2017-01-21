@@ -10,9 +10,12 @@ import App from './layout/App';
 import Characters from './routes/Characters';
 import Character from './routes/Character';
 import './styles/main.css';
+import { getCharacters } from './redux/modules/characters';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
+
+store.dispatch(getCharacters());
 
 ReactDOM.render(
   <Provider store={store}>
