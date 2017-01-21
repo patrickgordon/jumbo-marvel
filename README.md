@@ -8,21 +8,21 @@
 1. Browser history must be maintained when navigating between views
 
 ## Considerations
-
 When creating the app consider the following areas :
 * Modern development practices
 * Performance
 * Scalability 
 * Testability
 
-# Libs
-## Definite 
-* Create React App
-* React-Router - to address criteria #6
+# Implementation comments
+* Decided to roll my own CSS to keep things lightweight*
 
-## Maybe
-* Redux - business case required
-* Reselect - business case required
+# Comments on directory structure
+For those under `src`
+
+|Directory                    |Purpose                                            |
+|-----------------------------|---------------------------------------------------|
+|components                   |Re-usable components. Presentational or "dumb"     |
 
 # Routes
 |Route             |Component    |

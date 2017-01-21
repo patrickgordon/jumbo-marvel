@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../components/Footer';
 import logo from '../../assets/marvel-logo-cropped.png';
 import './App.css';
 
@@ -21,6 +22,9 @@ const App = (props) => {
         <div className="container-fluid">
           {props.children}
         </div>
+      </div>
+      <div className="footer-container">
+        <Footer />
       </div>
     </div>
   );
