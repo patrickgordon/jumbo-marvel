@@ -1,0 +1,36 @@
+.ListGroupItem__normal {
+  display: block;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  padding: 15px;
+  margin-bottom: -1px;
+}
+
+.ListGroupItem__normal:first-child {
+  border-top: 0;
+}
+
+.ListGroupItem__normal:last-child {
+  border-bottom: 0;
+}
+
+.ListGroupItem__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ListGroupItem__link {
+  color: #FC4C02;
+  border-radius: 0;
+}
+
+.ListGroupItem__link:hover {
+  color: #FF661C;
+}
+
+.ListGroupItem__subText {
+  color: #757575;
+  font-size: 0.70rem;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../../../../components/Card';
 import Spinner from '../../../../components/Spinner';
+import BackgroundText from '../../../../components/BackgroundText';
 import './CharactersList.css';
 
 const CharactersList = (props) => {
@@ -16,11 +17,7 @@ const CharactersList = (props) => {
 
   const characterList = (
     <div>
-      <div className="row">
-        <div className="col-xs-12">
-          <h4 className="CharacterList__background-text">Characters</h4>
-        </div>
-      </div>
+      <BackgroundText text="Characters" />
       <div className="row">
         {
           items.map((item) => {

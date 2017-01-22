@@ -2,16 +2,16 @@ import React from 'react';
 import './Panel.css';
 
 const Panel = (props) => {
-  const { children, title, style } = props;
+  const { children, title, bodyStyle } = props;
   return (
-    <div className="Panel__normal" style={style}>
+    <div className="Panel__normal">
       {title &&
       <div className="Panel__header">
         <h4 className="Panel__header__headerText">{title}</h4>
       </div>
       }
 
-      <div className="Panel__body">
+      <div className="Panel__body" style={bodyStyle}>
         {children}
       </div>
     </div>
@@ -21,13 +21,13 @@ const Panel = (props) => {
 Panel.propTypes = {
   children: React.PropTypes.node,
   title: React.PropTypes.string,
-  style: React.PropTypes.objectOf(React.PropTypes.any),
+  bodyStyle: React.PropTypes.objectOf(React.PropTypes.any),
 };
 
 Panel.defaultProps = {
   children: null,
   title: '',
-  style: null,
+  bodyStyle: null,
 };
 
 export default Panel;
