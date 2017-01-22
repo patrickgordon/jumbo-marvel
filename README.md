@@ -1,3 +1,5 @@
+![Example](example.gif)
+
 # Spec
 ## Acceptance Criteria
 1. Must use the marvel API (https://developer.marvel.com/)
