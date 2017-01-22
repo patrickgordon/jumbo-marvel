@@ -7,11 +7,7 @@ import BackgroundText from '../../../../components/BackgroundText';
 import './CharacterDetails.css';
 
 const CharacterDetails = (props) => {
-  const { isFetching, character } = props;
-  const comics = character.comics ? character.comics.items : [];
-  const stories = character.stories ? character.stories.items : [];
-  const series = character.series ? character.series.items : [];
-  const events = character.events ? character.events.items : [];
+  const { isFetching, character, comics, stories, series, events } = props;
 
   const imgSrc = character.thumbnail ?
     `${character.thumbnail.path}/standard_xlarge.${character.thumbnail.extension}`
@@ -52,7 +48,7 @@ const CharacterDetails = (props) => {
     (
       <div>
         {
-          comics.map((comic) => {
+          comics.items.map((comic) => {
             return (
               <ListGroupItem
                 key={comic.resourceURI}
@@ -72,7 +68,7 @@ const CharacterDetails = (props) => {
     (
       <div>
         {
-          stories.map((story) => {
+          stories.items.map((story) => {
             return (
               <ListGroupItem
                 key={story.resourceURI}
@@ -92,7 +88,7 @@ const CharacterDetails = (props) => {
     (
       <div>
         {
-          series.map((item) => {
+          series.items.map((item) => {
             return (
               <ListGroupItem
                 key={item.resourceURI}
@@ -112,7 +108,7 @@ const CharacterDetails = (props) => {
     (
       <div>
         {
-          events.map((event) => {
+          events.items.map((event) => {
             return (
               <ListGroupItem
                 key={event.resourceURI}
@@ -178,7 +174,10 @@ const CharacterDetails = (props) => {
 
         <div className="row">
           <div className="col-xs-12 col-sm-12, col-md-3">
-            <BackgroundText text="Comics" />
+            <BackgroundText
+              text="Comics"
+              subText={`Displaying ${comics.meta.returned} of ${comics.meta.total}`}
+            />
             <div className="row">
               <div className="col-xs">
                 <Panel bodyStyle={{ padding: 0 }}>
@@ -191,7 +190,10 @@ const CharacterDetails = (props) => {
           </div>
 
           <div className="col-xs-12 col-sm-12, col-md-3">
-            <BackgroundText text="Stories" />
+            <BackgroundText
+              text="Stories"
+              subText={`Displaying ${stories.meta.returned} of ${stories.meta.total}`}
+            />
             <div className="row">
               <div className="col-xs">
                 <Panel bodyStyle={{ padding: 0 }}>
@@ -204,7 +206,10 @@ const CharacterDetails = (props) => {
           </div>
 
           <div className="col-xs-12 col-sm-12, col-md-3">
-            <BackgroundText text="Series" />
+            <BackgroundText
+              text="Series"
+              subText={`Displaying ${series.meta.returned} of ${series.meta.total}`}
+            />
             <div className="row">
               <div className="col-xs">
                 <Panel bodyStyle={{ padding: 0 }}>
@@ -217,7 +222,10 @@ const CharacterDetails = (props) => {
           </div>
 
           <div className="col-xs-12 col-sm-12, col-md-3">
-            <BackgroundText text="Events" />
+            <BackgroundText
+              text="Events"
+              subText={`Displaying ${events.meta.returned} of ${events.meta.total}`}
+            />
             <div className="row">
               <div className="col-xs">
                 <Panel bodyStyle={{ padding: 0 }}>
@@ -239,11 +247,19 @@ const CharacterDetails = (props) => {
 CharacterDetails.propTypes = {
   isFetching: React.PropTypes.bool,
   character: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+  comics: React.PropTypes.objectOf(React.PropTypes.any),
+  series: React.PropTypes.objectOf(React.PropTypes.any),
+  stories: React.PropTypes.objectOf(React.PropTypes.any),
+  events: React.PropTypes.objectOf(React.PropTypes.any),
 };
 
 CharacterDetails.defaultProps = {
   isFetching: false,
   character: {},
+  comics: {},
+  series: {},
+  stories: {},
+  events: {},
 };
 
 export default CharacterDetails;

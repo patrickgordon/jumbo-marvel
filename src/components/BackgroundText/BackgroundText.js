@@ -2,11 +2,17 @@ import React from 'react';
 import './BackgroundText.css';
 
 const BackgroundText = (props) => {
-  const { text } = props;
+  const { text, subText } = props;
   return (
     <div className="row">
       <div className="col-xs-12">
-        <h4 className="BackgroundText__text">{text}</h4>
+        <div className="BackgroundText__text-container">
+          <h4 className="BackgroundText__text">{text}</h4>
+          {' '}
+          {subText &&
+          <span className="BackgroundText__sub-text">{subText}</span>
+          }
+        </div>
       </div>
     </div>
   );
@@ -14,10 +20,12 @@ const BackgroundText = (props) => {
 
 BackgroundText.propTypes = {
   text: React.PropTypes.string.isRequired,
+  subText: React.PropTypes.string,
 };
 
 BackgroundText.defaultProps = {
   text: '',
+  subText: '',
 };
 
 export default BackgroundText;

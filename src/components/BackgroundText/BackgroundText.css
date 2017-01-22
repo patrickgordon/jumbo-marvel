@@ -1,5 +1,15 @@
+.BackgroundText__text-container {
+  margin-bottom: 20px;
+}
+
 .BackgroundText__text {
   text-transform: uppercase;
   color: rgb(40, 72, 86);
-  margin-top: 0;
+  margin: 0;
+  display: inline;
+}
+
+.BackgroundText__sub-text {
+  font-size: 0.8rem;
+  color: #757575;
 }
