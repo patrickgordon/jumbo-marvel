@@ -1,58 +1,98 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactPaginate from 'react-paginate';
 import Card from '../../../../components/Card';
 import Spinner from '../../../../components/Spinner';
 import BackgroundText from '../../../../components/BackgroundText';
 import './CharactersList.css';
 
-const CharactersList = (props) => {
-  const { isFetching, items } = props;
+class CharactersList extends Component {
+  constructor(props) {
+    super(props);
+    this.handlePaginationPageChange = this.handlePaginationPageChange.bind(this);
+  }
 
-  const spinner = (
-    <div className="row center-xs">
-      <div className="col-xs-12 col-sm-6">
-        <Spinner />
+  state = {
+    currentPaginationPage: 0,
+  };
+
+  handlePaginationPageChange(pageNum) {
+    this.setState({
+      currentPaginationPage: (pageNum.selected),
+    });
+    const offset = pageNum.selected * 50;
+    this.props.getCharactersFromAPI(offset);
+  }
+
+  render() {
+    const { isFetching, characters, paginationParams } = this.props;
+
+    const spinner = (
+      <div className="row center-xs">
+        <div className="col-xs-12 col-sm-6">
+          <Spinner />
+        </div>
       </div>
-    </div>
-  );
+    );
 
-  const characterList = (
-    <div>
-      <BackgroundText text="Characters" />
-      <div className="row">
-        {
-          items.map((item) => {
-            return (
-              <div key={item.id} className="col-xs-12 col-sm-6 col-md-2">
-                <Card
-                  title={item.name} linkTo={`/characters/${item.id}`}
-                  image={`${item.thumbnail.path}/standard_fantastic.${item.thumbnail.extension}`}
-                />
-              </div>
-            );
-          })
-        }
+    const characterList = (
+      <div>
+        <BackgroundText text="Characters" />
+        <div className="row">
+          {
+            characters.map((character) => {
+              return (
+                <div key={character.id} className="col-xs-12 col-sm-6 col-md-2">
+                  <Card
+                    title={character.name} linkTo={`/characters/${character.id}`}
+                    image={`${character.thumbnail.path}/standard_fantastic.${character.thumbnail.extension}`}
+                  />
+                </div>
+              );
+            })
+          }
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <nav className="pagination">
+              <ReactPaginate
+                pageCount={paginationParams.totalPages}
+                pageRangeDisplayed={5}
+                marginPagesDisplayed={2}
+                containerClassName="pagination-list"
+                pageClassName=""
+                pageLinkClassName="pagination-link"
+                activeClassName="pagination-link is-current"
+                previousLinkClassName="pagination-previous"
+                nextLinkClassName="pagination-next"
+                onPageChange={this.handlePaginationPageChange}
+                forcePage={this.state.currentPaginationPage}
+              />
+            </nav>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
 
-  return (
+    return (
 
-    isFetching ?
-      spinner
-      :
-      characterList
-  );
-};
+      isFetching ?
+        spinner
+        :
+        characterList
+    );
+  }
+}
 
 
 CharactersList.propTypes = {
   isFetching: React.PropTypes.bool,
-  items: React.PropTypes.arrayOf(React.PropTypes.object),
+  characters: React.PropTypes.arrayOf(React.PropTypes.object),
+  paginationParams: React.PropTypes.objectOf(React.PropTypes.any),
 };
 
 CharactersList.defaultProps = {
   isFetching: false,
-  items: [],
+  characters: [],
 };
 
 export default CharactersList;

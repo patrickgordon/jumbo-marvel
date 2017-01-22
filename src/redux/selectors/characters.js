@@ -1,6 +1,12 @@
 import { createSelector } from 'reselect';
 
+export const getCharacters = state => state.characters.items;
 export const getCharacter = (state, id) => state.characters.items.filter(item => item.id.toString() === id)[0];
+export const getPaginationParams = (state) => {
+  return {
+    totalPages: Math.ceil(state.characters.meta.totalRecords / 50),
+  };
+};
 
 export const getComics = createSelector(
   [getCharacter],
