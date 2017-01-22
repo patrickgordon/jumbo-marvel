@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../Card';
-import Spinner from '../Spinner';
+import Card from '../../../../components/Card';
+import Spinner from '../../../../components/Spinner';
 import './CharactersList.css';
 
 const CharactersList = (props) => {

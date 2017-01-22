@@ -1,13 +1,11 @@
-import React from 'react';
-import './Character.css';
+import { connect } from 'react-redux';
+import CharacterDetails from './components/CharacterDetails';
 
-const Character = (props) => {
-  return (
-    <div>I am character {props.params.id}</div>
-  );
-};
+const mapStateToProps = (state, ownProps) => ({
+  isFetching: state.characters.isFetching,
+  character: state.characters.items.filter(item => item.id === parseInt(ownProps.params.id, 10))[0],
+  id: ownProps.params.id,
+});
 
-Character.propTypes = {};
-
-export default Character;
+export default connect(mapStateToProps)(CharacterDetails);
 
