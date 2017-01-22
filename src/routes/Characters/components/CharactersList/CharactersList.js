@@ -88,11 +88,13 @@ CharactersList.propTypes = {
   isFetching: React.PropTypes.bool,
   characters: React.PropTypes.arrayOf(React.PropTypes.object),
   paginationParams: React.PropTypes.objectOf(React.PropTypes.any),
+  getCharactersFromAPI: React.PropTypes.func.isRequired,
 };
 
 CharactersList.defaultProps = {
   isFetching: false,
   characters: [],
+  paginationParams: {},
 };
 
 export default CharactersList;

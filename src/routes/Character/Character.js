@@ -15,7 +15,6 @@ const mapStateToProps = (state, ownProps) => ({
   stories: getStories(state, ownProps.params.id),
   series: getSeries(state, ownProps.params.id),
   events: getEvents(state, ownProps.params.id),
-  id: ownProps.params.id,
 });
 
 export default connect(mapStateToProps)(CharacterDetails);
